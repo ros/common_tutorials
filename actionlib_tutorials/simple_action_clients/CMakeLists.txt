@@ -1,0 +1,3 @@
+rosbuild_add_executable(fibonacci_client fibonacci_client.cpp)
+
+rosbuild_add_executable(averaging_client averaging_client.cpp)
