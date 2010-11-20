@@ -7,7 +7,8 @@
   <depend stack="common" /> <!-- actionlib, pluginlib -->
   <depend stack="common_msgs" /> <!-- actionlib_msgs -->
   <depend stack="geometry" /> <!-- angles -->
-  <depend stack="ros" /> <!-- rosconsole, roslib, std_msgs, roscpp, rospy -->
+  <depend stack="ros" /> <!-- roslib -->
+  <depend stack="ros_comm" /> <!-- std_msgs, rospy, roscpp, rosconsole -->
   <depend stack="ros_tutorials" /> <!-- turtlesim -->
 
 </stack>
