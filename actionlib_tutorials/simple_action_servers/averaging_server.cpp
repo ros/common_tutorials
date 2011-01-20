@@ -44,7 +44,7 @@ class AveragingAction
 public:
     
   AveragingAction(std::string name) : 
-    as_(nh_, name),
+    as_(nh_, name, false),
     action_name_(name)
   {
     //register the goal and feeback callbacks
@@ -53,6 +53,9 @@ public:
 
     //subscribe to the data topic of interest
     sub_ = nh_.subscribe("/random_number", 1, &AveragingAction::analysisCB, this);
+
+    //start the action server
+    as_.start();
   }
 
   ~AveragingAction(void)

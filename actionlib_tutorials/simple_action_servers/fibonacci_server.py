@@ -41,7 +41,8 @@ class FibonacciAction(object):
 
 	def __init__(self, name):
 		self._action_name = name
-		self._as = actionlib.SimpleActionServer(self._action_name, actionlib_tutorials.msg.FibonacciAction, execute_cb=self.execute_cb)
+		self._as = actionlib.SimpleActionServer(self._action_name, actionlib_tutorials.msg.FibonacciAction, execute_cb=self.execute_cb, False)
+        self._as.start()
 		
 	def execute_cb(self, goal):
 		# helper variables

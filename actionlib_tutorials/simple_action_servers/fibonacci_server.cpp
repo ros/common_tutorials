@@ -43,9 +43,11 @@ class FibonacciAction
 public:
     
   FibonacciAction(std::string name) : 
-    as_(nh_, name, boost::bind(&FibonacciAction::executeCB, this, _1)),
+    as_(nh_, name, boost::bind(&FibonacciAction::executeCB, this, _1), false),
     action_name_(name)
   {
+    //start the action server
+    as_.start();
   }
 
   ~FibonacciAction(void)
