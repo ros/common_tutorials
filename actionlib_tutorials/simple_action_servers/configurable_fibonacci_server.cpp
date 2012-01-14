@@ -104,7 +104,10 @@ public:
         }
         temp = sequence[i] + sequence[i-1];
         sequence.push_back(temp);
-        feedback.set_sequence_vec(sequence);
+        for(std::vector<int>::const_iterator it = sequence.begin();
+            it != sequence.end();
+            ++it)
+          feedback.sequence.push_back(*it);
         // publish the feedback 
         as_.publishFeedback(feedback);
         // this sleep is not necessary, it is just to slow down the action for demonstration purposes
@@ -113,7 +116,10 @@ public:
 
       if(success)
       {
-        result.set_sequence_vec(sequence);
+        for(std::vector<int>::const_iterator it = sequence.begin();
+            it != sequence.end();
+            ++it)
+          result.sequence.push_back(*it);
         ROS_INFO("%s: Succeeded", action_name_.c_str());
         // set the action state to succeeded
         as_.setSucceeded(result);
