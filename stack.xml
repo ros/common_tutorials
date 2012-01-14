@@ -7,7 +7,7 @@
   <depend stack="actionlib" /> <!-- actionlib -->
   <depend stack="common_msgs" /> <!-- actionlib_msgs -->
   <depend stack="geometry" /> <!-- angles -->
-  <depend stack="nodelet" /> <!-- nodelet -->
+  <depend stack="nodelet_core" /> <!-- nodelet -->
   <depend stack="pluginlib" /> <!-- pluginlib -->
   <depend stack="ros" /> <!-- roslib -->
   <depend stack="ros_comm" /> <!-- rosconsole, std_msgs, roscpp, rospy -->
