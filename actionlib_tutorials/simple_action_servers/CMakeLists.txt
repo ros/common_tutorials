@@ -1,4 +1,8 @@
+rosbuild_add_boost_directories()
 rosbuild_add_executable(fibonacci_server fibonacci_server.cpp)
+rosbuild_link_boost(fibonacci_server thread)
 rosbuild_add_executable(configurable_fibonacci_server configurable_fibonacci_server.cpp)
+rosbuild_link_boost(configurable_fibonacci_server thread)
 
 rosbuild_add_executable(averaging_server averaging_server.cpp)
+rosbuild_link_boost(averaging_server thread)
