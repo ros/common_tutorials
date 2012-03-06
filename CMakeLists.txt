@@ -1,8 +1,3 @@
-if (CATKIN)
-  include(catkin.cmake)
-  return()
-endif()
-
 cmake_minimum_required(VERSION 2.4.6)
 include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
@@ -19,4 +14,4 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 # variables.
 #list(APPEND CPACK_SOURCE_IGNORE_FILES /core/experimental)
 
-rosbuild_make_distribution(0.2.2)
+rosbuild_make_distribution(0.2.3)
