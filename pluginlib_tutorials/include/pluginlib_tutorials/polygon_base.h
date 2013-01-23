@@ -2,7 +2,7 @@
 *
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2009, Willow Garage, Inc.
+*  Copyright (c) 2013, Willow Garage, Inc.
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *
 * Author: Eitan Marder-Eppstein
+* Author: Isaac Saito
 *********************************************************************/
 #ifndef PLUGINLIB_TUTORIALS_POLYGON_BASE_H_
 #define PLUGINLIB_TUTORIALS_POLYGON_BASE_H_

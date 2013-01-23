@@ -2,7 +2,7 @@
 *
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2009, Willow Garage, Inc.
+*  Copyright (c) 2013, Willow Garage, Inc.
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *
 * Author: Eitan Marder-Eppstein
+* Author: Isaac Saito
 *********************************************************************/
 #include <pluginlib/class_loader.h>
 #include <pluginlib_tutorials/polygon_base.h>
@@ -47,12 +48,24 @@ int main(int argc, char** argv)
   try
   {
     triangle = poly_loader.createClassInstance("pluginlib_tutorials/regular_triangle");
+    //    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");
+    //    triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");
     triangle->initialize(10.0);
 
+    ROS_INFO("Triangle area: %.2f", triangle->area());
+  }
+  catch(pluginlib::PluginlibException& ex)
+  {
+    ROS_ERROR("The plugin failed to load for some reason. Error: %s", ex.what());
+  }
+
+  try
+  {
+    //boost::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createClassInstance("polygon_plugins::Square");
+    //square = poly_loader.createClassInstance("polygon_plugins::Square");
     square = poly_loader.createClassInstance("pluginlib_tutorials/regular_square");
     square->initialize(10.0);
 
-    ROS_INFO("Triangle area: %.2f", triangle->area());
     ROS_INFO("Square area: %.2f", square->area());
   }
   catch(pluginlib::PluginlibException& ex)

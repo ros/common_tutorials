@@ -2,7 +2,7 @@
 *
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2009, Willow Garage, Inc.
+*  Copyright (c) 2013, Willow Garage, Inc.
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -33,10 +33,13 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *
 * Author: Eitan Marder-Eppstein
+* Author: Isaac Saito
 *********************************************************************/
 #include <pluginlib/class_list_macros.h>
 #include <pluginlib_tutorials/polygon_base.h>
 #include <pluginlib_tutorials/polygon_plugins.h>
 
-PLUGINLIB_DECLARE_CLASS(pluginlib_tutorials, regular_triangle, polygon_plugins::Triangle, polygon_base::RegularPolygon)
-PLUGINLIB_DECLARE_CLASS(pluginlib_tutorials, regular_square, polygon_plugins::Square, polygon_base::RegularPolygon)
+PLUGINLIB_EXPORT_CLASS(polygon_plugins::Triangle, polygon_base::RegularPolygon)
+PLUGINLIB_EXPORT_CLASS(polygon_plugins::Square, polygon_base::RegularPolygon)
+//PLUGINLIB_DECLARE_CLASS(pluginlib_tutorials, regular_triangle, polygon_plugins::Triangle, polygon_base::RegularPolygon)
+//PLUGINLIB_DECLARE_CLASS(pluginlib_tutorials, regular_square, polygon_plugins::Square, polygon_base::RegularPolygon)
