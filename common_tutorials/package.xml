@@ -1,0 +1,21 @@
+<package>
+  <name>common_tutorials</name>
+  <version>0.1.2</version>
+  <description>Metapackage that contains common tutorials</description>
+  <maintainer email="tfoote@willowgarage.com">Tully Foote</maintainer>
+  <maintainer email="isaito@willowgarage.com">Isaac Saito</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/common_tutorials</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>learning_actionlib</run_depend>
+  <run_depend>nodelet_tutorial_math</run_depend>
+  <run_depend>pluginlib_tutorials</run_depend>
+  <run_depend>turtle_actionlib</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
