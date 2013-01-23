@@ -1,0 +1,40 @@
+<package>
+  <name>common_tutorials</name>
+  <version>0.1.2</version>
+  <description>Metapackage that contains common tutorials</description>
+  <maintainer email="tfoote@willowgarage.com">Tully Foote</maintainer>
+  <maintainer email="isaito@willowgarage.com">Isaac Saito</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/common_tutorials</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>angles</build_depend>
+  <build_depend>common_msgs</build_depend>
+  <build_depend>geometry</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>nodelet</build_depend>
+  <build_depend>nodelet_core</build_depend>
+  <build_depend>polygon_interface_package</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>ros</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>ros_comm</build_depend>
+  <build_depend>ros_tutorials</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>turtlesim</build_depend>
+
+  <run_depend>actionlib</run_depend>
+  <run_depend>message_generation</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>polygon_interface_package</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
