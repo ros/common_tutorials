@@ -76,7 +76,7 @@ int main(int argc, char** argv)
 {
   ros::init(argc, argv, "fibonacci");
 
-  FibonacciAction fibonacci(ros::this_node::getName());
+  FibonacciAction fibonacci("fibonacci");
   ros::spin();
 
   return 0;
