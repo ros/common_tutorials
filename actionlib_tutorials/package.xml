@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <package>
   <name>learning_actionlib</name>
-  <version>0.0.0</version>
+  <version>0.1.2</version>
   <description>The learning_actionlib package</description>
-
-  <maintainer email="isaito@willowgarage.com">Isaac Saito</maintainer>
-
-  <license>BSD</license>
-
-  <url type="website">http://www.ros.org/wiki/actionlib/Tutorials</url>
-
   <author>Melonee Wise</author>
+  <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/actionlib/Tutorials</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
