@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>learning_actionlib</name>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <description>The learning_actionlib package</description>
   <author>Melonee Wise</author>
   <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
