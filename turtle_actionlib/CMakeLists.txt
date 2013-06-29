@@ -1,37 +1,26 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(turtle_actionlib)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+find_package(catkin REQUIRED COMPONENTS actionlib actionlib_msgs angles message_generation rosconsole roscpp std_msgs turtlesim)
 
-rosbuild_find_ros_package(actionlib_msgs)
-include(${actionlib_msgs_PACKAGE_PATH}/cmake/actionbuild.cmake)
-genaction()
+add_message_files(DIRECTORY msg FILES Velocity.msg)
+add_action_files(DIRECTORY action FILES Shape.action)
 
-rosbuild_init()
+generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+catkin_package(
+#  INCLUDE_DIRS include
+  LIBRARIES turtle_actionlib_tutorial
+  CATKIN_DEPENDS actionlib message_generation roscpp
+#  DEPENDS system_lib
+)
 
-#uncomment if you have defined messages
-rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
+#include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-rosbuild_add_executable(shape_server src/shape_server.cpp)
-rosbuild_link_boost(shape_server thread)
-rosbuild_add_executable(shape_client src/shape_client.cpp)
-rosbuild_link_boost(shape_client thread)
-#target_link_libraries(example ${PROJECT_NAME})
+add_executable(shape_server src/shape_server.cpp )
+add_dependencies(shape_server thread)
+target_link_libraries(shape_server ${catkin_LIBRARIES})
+
+add_executable(shape_client src/shape_client.cpp)
+add_dependencies(shape_client thread)
+target_link_libraries(shape_client ${catkin_LIBRARIES})

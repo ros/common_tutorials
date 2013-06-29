@@ -1,0 +1,39 @@
+<package>
+  <name>turtle_actionlib</name>
+  <version>0.2.3</version>
+  <description>turtle_actionlib demonstrates how to write an action server and client with the turtlesim. The shape_server provides and action interface for drawing regular polygons with the turtlesim. </description>
+  <author>Melonee Wise</author>
+  <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/turtle_actionlib</url>
+  <url type="repository">https://github.com/ros/common_tutorials</url>
+  <url type="bugtracker">https://github.com/ros/common_tutorials/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>angles</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>turtlesim</build_depend>
+
+  <run_depend>actionlib</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>angles</run_depend>
+  <run_depend>message_generation</run_depend>
+  <run_depend>rosconsole</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>turtlesim</run_depend>
+
+  <export>
+    <cpp cflags="-I${prefix}/include -I${prefix}/srv/cpp -I${prefix}/msg/cpp"
+         lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib"/>
+  </export>
+</package>
+
+
+

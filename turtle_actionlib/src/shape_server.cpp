@@ -1,11 +1,12 @@
 #include <ros/ros.h>
 #include <turtlesim/Pose.h>
-#include <turtlesim/Velocity.h>
 #include <actionlib/server/simple_action_server.h>
-#include <turtle_actionlib/ShapeAction.h>
 #include <cmath>
 #include <math.h>
 #include <angles/angles.h>
+
+#include <turtle_actionlib/Velocity.h>
+#include <turtle_actionlib/ShapeAction.h>
 
 // This class computes the command_velocities of the turtle to draw regular polygons 
 class ShapeAction
@@ -22,7 +23,7 @@ public:
 
     //subscribe to the data topic of interest
     sub_ = nh_.subscribe("/turtle1/pose", 1, &ShapeAction::controlCB, this);
-    pub_ = nh_.advertise<turtlesim::Velocity>("/turtle1/command_velocity", 1);
+    pub_ = nh_.advertise<turtle_actionlib::Velocity>("/turtle1/command_velocity", 1);
   }
 
   ~ShapeAction(void)
@@ -125,7 +126,7 @@ protected:
   double dis_error_, theta_error_;
   int edges_ , edge_progress_;
   bool start_edge_;
-  turtlesim::Velocity command_;
+  turtle_actionlib::Velocity command_;
   turtle_actionlib::ShapeResult result_;
   ros::Subscriber sub_;
   ros::Publisher pub_;
