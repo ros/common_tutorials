@@ -35,6 +35,9 @@
 * Author: Eitan Marder-Eppstein
 * Author: Isaac Saito
 *********************************************************************/
+
+#include <boost/shared_ptr.hpp>
+
 #include <pluginlib/class_loader.h>
 #include <pluginlib_tutorials/polygon_base.h>
 
@@ -44,10 +47,7 @@ int main(int argc, char** argv)
 
   try
   {
-    polygon_base::RegularPolygon* triangle = NULL;
-    triangle = poly_loader.createClassInstance("pluginlib_tutorials/regular_triangle");
-    //    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");
-    //    triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");
+    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createInstance("polygon_plugins::Triangle");
     triangle->initialize(10.0);
 
     ROS_INFO("Triangle area: %.2f", triangle->area());
@@ -59,9 +59,7 @@ int main(int argc, char** argv)
 
   try
   {
-    //boost::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createClassInstance("polygon_plugins::Square");
-    //square = poly_loader.createClassInstance("polygon_plugins::Square");
-    square = poly_loader.createClassInstance("pluginlib_tutorials/regular_square");
+    boost::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createInstance("polygon_plugins::Square");
     square->initialize(10.0);
 
     ROS_INFO("Square area: %.2f", square->area());

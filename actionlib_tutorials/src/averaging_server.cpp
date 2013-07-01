@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
 #include <actionlib/server/simple_action_server.h>
-#include <learning_actionlib/AveragingAction.h>
+#include <actionlib_tutorials/AveragingAction.h>
 
 class AveragingAction
 {
@@ -80,12 +80,12 @@ public:
 protected:
     
   ros::NodeHandle nh_;
-  actionlib::SimpleActionServer<learning_actionlib::AveragingAction> as_;
+  actionlib::SimpleActionServer<actionlib_tutorials::AveragingAction> as_;
   std::string action_name_;
   int data_count_, goal_;
   float sum_, sum_sq_;
-  learning_actionlib::AveragingFeedback feedback_;
-  learning_actionlib::AveragingResult result_;
+  actionlib_tutorials::AveragingFeedback feedback_;
+  actionlib_tutorials::AveragingResult result_;
   ros::Subscriber sub_;
 };
 

@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
 #include <actionlib/client/terminal_state.h>
-#include <learning_actionlib/AveragingAction.h>
+#include <actionlib_tutorials/AveragingAction.h>
 #include <boost/thread.hpp>
 
 void spinThread()
@@ -14,7 +14,7 @@ int main (int argc, char **argv)
   ros::init(argc, argv, "test_averaging");
 
   // create the action client
-  actionlib::SimpleActionClient<learning_actionlib::AveragingAction> ac("averaging");
+  actionlib::SimpleActionClient<actionlib_tutorials::AveragingAction> ac("averaging");
   boost::thread spin_thread(&spinThread);
 
   ROS_INFO("Waiting for action server to start.");
@@ -22,7 +22,7 @@ int main (int argc, char **argv)
 
   ROS_INFO("Action server started, sending goal.");
   // send a goal to the action
-  learning_actionlib::AveragingGoal goal;
+  actionlib_tutorials::AveragingGoal goal;
   goal.samples = 100;
   ac.sendGoal(goal);
 

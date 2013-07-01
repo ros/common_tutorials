@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
 #include <actionlib/client/terminal_state.h>
-#include <learning_actionlib/FibonacciAction.h>
+#include <actionlib_tutorials/FibonacciAction.h>
 
 int main (int argc, char **argv)
 {
@@ -9,7 +9,7 @@ int main (int argc, char **argv)
 
   // create the action client
   // true causes the client to spin its own thread
-  actionlib::SimpleActionClient<learning_actionlib::FibonacciAction> ac("fibonacci", true);
+  actionlib::SimpleActionClient<actionlib_tutorials::FibonacciAction> ac("fibonacci", true);
 
   ROS_INFO("Waiting for action server to start.");
   // wait for the action server to start
@@ -17,7 +17,7 @@ int main (int argc, char **argv)
 
   ROS_INFO("Action server started, sending goal.");
   // send a goal to the action
-  learning_actionlib::FibonacciGoal goal;
+  actionlib_tutorials::FibonacciGoal goal;
   goal.order = 20;
   ac.sendGoal(goal);
 
