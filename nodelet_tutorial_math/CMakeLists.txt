@@ -4,19 +4,19 @@ project(nodelet_tutorial_math)
 find_package(catkin REQUIRED COMPONENTS nodelet roscpp std_msgs)
 
 catkin_package(
-  LIBRARIES nodelet_tutorial_math
+  LIBRARIES nodelet_math
   CATKIN_DEPENDS nodelet roscpp std_msgs
 )
 
 ## Create the nodelet tutorial library
-add_library(nodelet_tutorial_math src/plus.cpp)
-target_link_libraries(nodelet_tutorial_math ${catkin_LIBRARIES})
+add_library(nodelet_math src/plus.cpp)
+target_link_libraries(nodelet_math ${catkin_LIBRARIES})
 if(catkin_EXPORTED_LIBRARIES)
-  add_dependencies(nodelet_tutorial_math ${catkin_EXPORTED_LIBRARIES})
+  add_dependencies(nodelet_math ${catkin_EXPORTED_LIBRARIES})
 endif()
 
 ## Mark the nodelet library for installations
-install(TARGETS nodelet_tutorial_math
+install(TARGETS nodelet_math
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

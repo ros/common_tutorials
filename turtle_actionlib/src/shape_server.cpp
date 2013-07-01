@@ -12,9 +12,8 @@
 class ShapeAction
 {
 public:
-    
   ShapeAction(std::string name) : 
-    as_(nh_, name),
+    as_(nh_, name, false),
     action_name_(name)
   {
     //register the goal and feeback callbacks
@@ -24,6 +23,8 @@ public:
     //subscribe to the data topic of interest
     sub_ = nh_.subscribe("/turtle1/pose", 1, &ShapeAction::controlCB, this);
     pub_ = nh_.advertise<turtle_actionlib::Velocity>("/turtle1/command_velocity", 1);
+
+    as_.start();
   }
 
   ~ShapeAction(void)
@@ -35,7 +36,7 @@ public:
     // accept the new goal
     turtle_actionlib::ShapeGoal goal = *as_.acceptNewGoal();
     //save the goal as private variables
-    edges_ = goal.edges;    
+    edges_ = goal.edges;
     radius_ = goal.radius;
 
     // reset helper variables
@@ -62,17 +63,17 @@ public:
     // make sure that the action hasn't been canceled
     if (!as_.isActive())
       return;
-
-    // scalar values for drive the turtle faster and straighter
-    double l_scale = 6.0;
-    double a_scale = 6.0;
-    double error_tol = 0.00001;
   
     if (edge_progress_ < edges_)
-    {     
+    {
+      // scalar values for drive the turtle faster and straighter
+      double l_scale = 6.0;
+      double a_scale = 6.0;
+      double error_tol = 0.00001;
+
       if (start_edge_)
       {
-	start_x_ = msg->x;
+        start_x_ = msg->x;
         start_y_ = msg->y;
         start_theta_ = msg->theta;
         start_edge_ = false;
@@ -90,7 +91,7 @@ public:
       else if (dis_error_ < error_tol && fabs(theta_error_)> error_tol)
       { 
         command_.linear = 0;
-	command_.angular = a_scale*theta_error_;
+        command_.angular = a_scale*theta_error_;
       }
       else if (dis_error_ < error_tol && fabs(theta_error_)< error_tol)
       {
@@ -111,13 +112,12 @@ public:
     else
     {          
       ROS_INFO("%s: Succeeded", action_name_.c_str());
-      // set the action state to succeeded                                                                                    
+      // set the action state to succeeded
       as_.setSucceeded(result_);
     }   
   }
 
 protected:
-    
   ros::NodeHandle nh_;
   actionlib::SimpleActionServer<turtle_actionlib::ShapeAction> as_;
   std::string action_name_;

@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 
   try
   {
-    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createInstance("polygon_plugins::Triangle");
+    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createInstance("pluginlib_tutorials/regular_triangle");
     triangle->initialize(10.0);
 
     ROS_INFO("Triangle area: %.2f", triangle->area());
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 
   try
   {
-    boost::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createInstance("polygon_plugins::Square");
+    boost::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createInstance("pluginlib_tutorials/regular_square");
     square->initialize(10.0);
 
     ROS_INFO("Square area: %.2f", square->area());
