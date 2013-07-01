@@ -42,11 +42,9 @@ int main(int argc, char** argv)
 {
   pluginlib::ClassLoader<polygon_base::RegularPolygon> poly_loader("pluginlib_tutorials", "polygon_base::RegularPolygon");
 
-  polygon_base::RegularPolygon* triangle = NULL;
-  polygon_base::RegularPolygon* square = NULL;
-
   try
   {
+    polygon_base::RegularPolygon* triangle = NULL;
     triangle = poly_loader.createClassInstance("pluginlib_tutorials/regular_triangle");
     //    boost::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");
     //    triangle = poly_loader.createClassInstance("polygon_plugins::Triangle");

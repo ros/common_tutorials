@@ -1,38 +1,61 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(learning_actionlib)
+project(actionlib_tutorials)
 
-find_package(catkin REQUIRED COMPONENTS actionlib message_generation) 
+## Find catkin dependencies
+find_package(catkin REQUIRED COMPONENTS actionlib message_generation)
 
-find_package(Boost REQUIRED COMPONENTS system)
+## Find Boost
+find_package(Boost REQUIRED COMPONENTS system thread)
 
-add_action_files(DIRECTORY action FILES Fibonacci.action # Averaging.action
-)
+## Add actions
+add_action_files(DIRECTORY action FILES Fibonacci.action Averaging.action)
 
+## Generate messages
 generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
 
+## Define catkin exports
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES learning_actionlib
-  CATKIN_DEPENDS roscpp actionlib message_generation
-#  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp actionlib
+  DEPENDS Boost
 )
 
-###########
-## Build ##
-###########
-
+## Setup include dirs
 include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
+## Averaging server
+add_executable(averaging_server src/averaging_server.cpp)
+target_link_libraries(averaging_server ${catkin_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(averaging_server ${catkin_EXPORTED_TARGETS})
+endif()
+
+## Averaging client
+add_executable(averaging_client src/averaging_client.cpp)
+target_link_libraries(averaging_client ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(averaging_client ${catkin_EXPORTED_TARGETS})
+endif()
+
+## Fibonacci server
 add_executable(fibonacci_server src/fibonacci_server.cpp)
-add_dependencies(fibonacci_server learning_actionlib_gencpp)
 target_link_libraries(fibonacci_server ${catkin_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(fibonacci_server ${catkin_EXPORTED_TARGETS})
+endif()
 
+## Fibonacci client
 add_executable(fibonacci_client src/fibonacci_client.cpp)
-add_dependencies(fibonacci_client learning_actionlib_gencpp)
 target_link_libraries(fibonacci_client ${catkin_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(fibonacci_client ${catkin_EXPORTED_TARGETS})
+endif()
 
-#add_executable(averaging_server src/averaging_server.cpp)
-#target_link_libraries(averaging_server ${catkin_LIBRARIES})
+## Install scripts and executables
+install(PROGRAMS scripts/gen_numbers.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-#add_executable(averaging_client src/averaging_client.cpp)
-#target_link_libraries(averaging_client ${catkin_LIBRARIES})
+install(TARGETS averaging_server averaging_client fibonacci_server fibonacci_client
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+

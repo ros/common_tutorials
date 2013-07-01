@@ -3,113 +3,24 @@ project(nodelet_tutorial_math)
 
 find_package(catkin REQUIRED COMPONENTS nodelet roscpp std_msgs)
 
-## Uncomment this if the package has a setup.py. This macro ensures
-## modules and scripts declared therein get installed
-# catkin_python_setup()
-
-#######################################
-## Declare ROS messages and services ##
-#######################################
-
-## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
-
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
-
-## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
-
-###################################################
-## Declare things to be passed to other projects ##
-###################################################
-
-## LIBRARIES: libraries you create in this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
   LIBRARIES nodelet_tutorial_math
-#  CATKIN_DEPENDS pluginlib roscpp
-#  DEPENDS system_lib
+  CATKIN_DEPENDS nodelet roscpp std_msgs
 )
 
-###########
-## Build ##
-###########
+## Create the nodelet tutorial library
+add_library(nodelet_tutorial_math src/plus.cpp)
+target_link_libraries(nodelet_tutorial_math ${catkin_LIBRARIES})
+if(catkin_EXPORTED_LIBRARIES)
+  add_dependencies(nodelet_tutorial_math ${catkin_EXPORTED_LIBRARIES})
+endif()
 
-## Specify additional locations of header files
-#include_directories(include
-#  ${catkin_INCLUDE_DIRS}
-#)
-
-## Declare a cpp library
-add_library(nodelet_tutorial_math
-#   src/${PROJECT_NAME}/pluginlib_tutorials.cpp
-   src/plus.cpp
-)
-
-## Add dependencies to the executable
-# add_dependencies(pluginlib_tutorials_node ${PROJECT_NAME})
-
-## Specify libraries to link a library or executable target against
-#target_link_libraries(polygon_loader
-#   ${catkin_LIBRARIES}
-#)
-
-#############
-## Install ##
-#############
-
-## Mark executable scripts (Python etc.) for installation
-## not required for python when using catkin_python_setup()
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark executables and/or libraries for installation
-# install(TARGETS pluginlib_tutorials pluginlib_tutorials_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
+## Mark the nodelet library for installations
+install(TARGETS nodelet_tutorial_math
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
-#############
-## Testing ##
-#############
-
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_pluginlib_tutorials.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
-
+install(FILES nodelet_math.xml plus.launch plus_default.yaml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

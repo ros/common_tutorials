@@ -45,7 +45,7 @@ namespace polygon_plugins
   class Triangle : public polygon_base::RegularPolygon
   {
     public:
-      Triangle(){}
+      Triangle() : side_length_() {}
 
       void initialize(double side_length)
       {
@@ -69,7 +69,7 @@ namespace polygon_plugins
   class Square : public polygon_base::RegularPolygon
   {
     public:
-      Square(){}
+      Square() : side_length_() {}
 
       void initialize(double side_length)
       {

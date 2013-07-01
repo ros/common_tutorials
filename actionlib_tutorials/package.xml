@@ -1,14 +1,20 @@
 <?xml version="1.0"?>
 <package>
-  <name>learning_actionlib</name>
+  <name>actionlib_tutorials</name>
   <version>0.1.4</version>
-  <description>The learning_actionlib package</description>
-  <author>Melonee Wise</author>
+  <description>The actionlib_tutorials package</description>
   <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+
   <license>BSD</license>
+
   <url type="website">http://www.ros.org/wiki/actionlib/Tutorials</url>
+  <url type="repository">https://github.com/ros/common_tutorials</url>
+  <url type="bugtracker">https://github.com/ros/common_tutorials/issues</url>
+
+  <author email="melducky@gmail.com">Melonee Wise</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>roscpp</build_depend>
   <build_depend>actionlib</build_depend>
   <build_depend>message_generation</build_depend>
@@ -17,8 +23,6 @@
 
   <run_depend>roscpp</run_depend>
   <run_depend>actionlib</run_depend>
-  <run_depend>message_generation</run_depend>
+  <run_depend>message_runtime</run_depend>
 
-  <export>
-  </export>
 </package>

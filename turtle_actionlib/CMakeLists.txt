@@ -1,26 +1,50 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(turtle_actionlib)
 
-find_package(catkin REQUIRED COMPONENTS actionlib actionlib_msgs angles message_generation rosconsole roscpp std_msgs turtlesim)
-
-add_message_files(DIRECTORY msg FILES Velocity.msg)
-add_action_files(DIRECTORY action FILES Shape.action)
-
-generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
-
-catkin_package(
-#  INCLUDE_DIRS include
-  LIBRARIES turtle_actionlib_tutorial
-  CATKIN_DEPENDS actionlib message_generation roscpp
-#  DEPENDS system_lib
+## Find catkin dependencies
+find_package(catkin REQUIRED
+  COMPONENTS
+    actionlib
+    actionlib_msgs
+    angles
+    message_generation
+    rosconsole
+    roscpp
+    std_msgs
+    turtlesim
 )
 
-#include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+## Add message definitions
+add_message_files(DIRECTORY msg FILES Velocity.msg)
 
-add_executable(shape_server src/shape_server.cpp )
-add_dependencies(shape_server thread)
+## Add action definitions
+add_action_files(DIRECTORY action FILES Shape.action)
+
+## Generate messages and actions
+generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
+
+## Setup catkin exports
+catkin_package()
+
+## Set include dirs
+include_directories(${catkin_INCLUDE_DIRS})
+
+## shape_server executable
+add_executable(shape_server src/shape_server.cpp)
 target_link_libraries(shape_server ${catkin_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(shape_server ${catkin_EXPORTED_TARGETS})
+endif()
 
+## shape_client executable
 add_executable(shape_client src/shape_client.cpp)
-add_dependencies(shape_client thread)
 target_link_libraries(shape_client ${catkin_LIBRARIES})
+if(catkin_EXPORTED_TARGETS)
+  add_dependencies(shape_client ${catkin_EXPORTED_TARGETS})
+endif()
+
+## Mark executables for installation
+install(TARGETS shape_server shape_client
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

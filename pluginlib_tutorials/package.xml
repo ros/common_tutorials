@@ -3,9 +3,7 @@
   <name>pluginlib_tutorials</name>
   <version>0.1.4</version>
   <description>The pluginlib_tutorials package</description>
-
   <maintainer email="iisaito@kinugarage.com">Isaac Saito</maintainer>
-  <author>Eitan Marder-Eppstein</author>
 
   <license>BSD</license>
 
@@ -13,14 +11,15 @@
   <url type="bugtracker">https://github.com/ros/common_tutorials/issues</url>
   <url type="repository">https://github.com/ros/common_tutorials/</url>
 
+  <author>Eitan Marder-Eppstein</author>
+
   <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>pluginlib</build_depend>
   <build_depend>roscpp</build_depend>
-<!-- <build_depend>polygon_interface_package</build_depend> -->
+
   <run_depend>pluginlib</run_depend>
   <run_depend>roscpp</run_depend>
-  <run_depend>pluginlib</run_depend>
-<!--  <run_depend>polygon_interface_package</run_depend> -->
 
   <export>
     <pluginlib_tutorials plugin="${prefix}/polygon_plugins.xml" />
