@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>actionlib_tutorials</name>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <description>The actionlib_tutorials package</description>
   <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
 
