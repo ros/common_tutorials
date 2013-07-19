@@ -3,6 +3,9 @@ project(nodelet_tutorial_math)
 
 find_package(catkin REQUIRED COMPONENTS nodelet roscpp std_msgs)
 
+## Setup include directories
+include_directories(${catkin_INCLUDE_DIRS})
+
 catkin_package(
   LIBRARIES nodelet_math
   CATKIN_DEPENDS nodelet roscpp std_msgs
