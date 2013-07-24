@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(nodelet_tutorial_math)
 
-find_package(catkin REQUIRED COMPONENTS nodelet roscpp std_msgs)
+find_package(catkin REQUIRED COMPONENTS nodelet roscpp std_msgs class_loader)
 
 ## Setup include directories
 include_directories(${catkin_INCLUDE_DIRS})
