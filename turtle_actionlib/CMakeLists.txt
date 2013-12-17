@@ -12,6 +12,7 @@ find_package(catkin REQUIRED
     roscpp
     std_msgs
     turtlesim
+    geometry_msgs
 )
 
 ## Add message definitions
