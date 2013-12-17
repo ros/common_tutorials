@@ -5,7 +5,7 @@
 #include <math.h>
 #include <angles/angles.h>
 
-#include <turtle_actionlib/Velocity.h>
+#include <geometry_msgs/Twist.h>
 #include <turtle_actionlib/ShapeAction.h>
 
 // This class computes the command_velocities of the turtle to draw regular polygons 
@@ -22,7 +22,7 @@ public:
 
     //subscribe to the data topic of interest
     sub_ = nh_.subscribe("/turtle1/pose", 1, &ShapeAction::controlCB, this);
-    pub_ = nh_.advertise<turtle_actionlib::Velocity>("/turtle1/command_velocity", 1);
+    pub_ = nh_.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1);
 
     as_.start();
   }
@@ -85,25 +85,25 @@ public:
      
       if (dis_error_ > error_tol)
       {
-        command_.linear = l_scale*dis_error_;
-        command_.angular = 0;
+        command_.linear.x = l_scale*dis_error_;
+        command_.angular.z = 0;
       }
       else if (dis_error_ < error_tol && fabs(theta_error_)> error_tol)
       { 
-        command_.linear = 0;
-        command_.angular = a_scale*theta_error_;
+        command_.linear.x = 0;
+        command_.angular.z = a_scale*theta_error_;
       }
       else if (dis_error_ < error_tol && fabs(theta_error_)< error_tol)
       {
-        command_.linear = 0;
-        command_.angular = 0;
+        command_.linear.x = 0;
+        command_.angular.z = 0;
         start_edge_ = true;
         edge_progress_++;
       }  
       else
       {
-        command_.linear = l_scale*dis_error_;
-        command_.angular = a_scale*theta_error_;
+        command_.linear.x = l_scale*dis_error_;
+        command_.angular.z = a_scale*theta_error_;
       } 
       // publish the velocity command
       pub_.publish(command_);
@@ -126,7 +126,7 @@ protected:
   double dis_error_, theta_error_;
   int edges_ , edge_progress_;
   bool start_edge_;
-  turtle_actionlib::Velocity command_;
+  geometry_msgs::Twist command_;
   turtle_actionlib::ShapeResult result_;
   ros::Subscriber sub_;
   ros::Publisher pub_;
