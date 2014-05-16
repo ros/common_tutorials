@@ -33,12 +33,12 @@ include_directories(${catkin_INCLUDE_DIRS})
 ## shape_server executable
 add_executable(shape_server src/shape_server.cpp)
 target_link_libraries(shape_server ${catkin_LIBRARIES})
-add_dependencies(shape_server ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(shape_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## shape_client executable
 add_executable(shape_client src/shape_client.cpp)
 target_link_libraries(shape_client ${catkin_LIBRARIES})
-add_dependencies(shape_client ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(shape_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Mark executables for installation
 install(TARGETS shape_server shape_client
