@@ -2,7 +2,7 @@
   <name>turtle_actionlib</name>
   <version>0.1.7</version>
   <description>turtle_actionlib demonstrates how to write an action server and client with the turtlesim. The shape_server provides and action interface for drawing regular polygons with the turtlesim. </description>
-  <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
 
   <license>BSD</license>
 
@@ -10,7 +10,7 @@
   <url type="repository">https://github.com/ros/common_tutorials</url>
   <url type="bugtracker">https://github.com/ros/common_tutorials/issues</url>
 
-  <author email="melducky@gmail.com">Melonee Wise</author>
+  <author>Melonee Wise</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
