@@ -25,17 +25,17 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 ## Averaging server
 add_executable(averaging_server src/averaging_server.cpp)
 target_link_libraries(averaging_server ${catkin_LIBRARIES})
-add_dependencies(averaging_server ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(averaging_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Averaging client
 add_executable(averaging_client src/averaging_client.cpp)
 target_link_libraries(averaging_client ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-add_dependencies(averaging_client ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(averaging_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Fibonacci server
 add_executable(fibonacci_server src/fibonacci_server.cpp)
 target_link_libraries(fibonacci_server ${catkin_LIBRARIES})
-add_dependencies(fibonacci_server ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(fibonacci_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Fibonacci client
 add_executable(fibonacci_client src/fibonacci_client.cpp)
@@ -43,7 +43,7 @@ target_link_libraries(fibonacci_client ${catkin_LIBRARIES})
 if(catkin_EXPORTED_TARGETS)
   add_dependencies(fibonacci_client ${catkin_EXPORTED_TARGETS})
 endif()
-add_dependencies(fibonacci_client ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+add_dependencies(fibonacci_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Install scripts and executables
 install(PROGRAMS scripts/gen_numbers.py
