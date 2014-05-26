@@ -2,9 +2,8 @@
   <name>nodelet_tutorial_math</name>
   <version>0.1.7</version>
   <description>Package for Nodelet tutorial.</description>
-  <author email="tfoote@willowgarage.com">Tully Foote</author>
-  <maintainer email="tfoote@willowgarage.com">Tully Foote</maintainer>
-  <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <author>Tully Foote</author>
   <license>BSD</license>
   <url type="website">http://www.ros.org/wiki/nodelet_tutorial_math</url>
 

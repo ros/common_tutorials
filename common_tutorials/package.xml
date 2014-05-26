@@ -2,9 +2,7 @@
   <name>common_tutorials</name>
   <version>0.1.7</version>
   <description>Metapackage that contains common tutorials</description>
-  <maintainer email="tfoote@willowgarage.com">Tully Foote</maintainer>
-  <maintainer email="iisaito@kinugarage.com">Isaac Saito</maintainer>
-
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
 
   <url type="website">http://ros.org/wiki/common_tutorials</url>

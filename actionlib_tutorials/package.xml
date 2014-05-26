@@ -3,15 +3,14 @@
   <name>actionlib_tutorials</name>
   <version>0.1.7</version>
   <description>The actionlib_tutorials package</description>
-  <maintainer email="iisaito@kinugarage.com">Isao Isaac Saito</maintainer>
-
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
 
   <url type="website">http://www.ros.org/wiki/actionlib/Tutorials</url>
   <url type="repository">https://github.com/ros/common_tutorials</url>
   <url type="bugtracker">https://github.com/ros/common_tutorials/issues</url>
 
-  <author email="melducky@gmail.com">Melonee Wise</author>
+  <author>Melonee Wise</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
