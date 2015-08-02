@@ -37,13 +37,21 @@ add_executable(fibonacci_server src/fibonacci_server.cpp)
 target_link_libraries(fibonacci_server ${catkin_LIBRARIES})
 add_dependencies(fibonacci_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-## Fibonacci client
+## Fibonacci clients
 add_executable(fibonacci_client src/fibonacci_client.cpp)
+add_executable(fibonacci_callback_client src/fibonacci_callback_client.cpp)
+add_executable(fibonacci_class_client src/fibonacci_class_client.cpp)
 target_link_libraries(fibonacci_client ${catkin_LIBRARIES})
+target_link_libraries(fibonacci_callback_client ${catkin_LIBRARIES})
+target_link_libraries(fibonacci_class_client ${catkin_LIBRARIES})
 if(catkin_EXPORTED_TARGETS)
   add_dependencies(fibonacci_client ${catkin_EXPORTED_TARGETS})
+  add_dependencies(fibonacci_callback_client ${catkin_EXPORTED_TARGETS})
+  add_dependencies(fibonacci_class_client ${catkin_EXPORTED_TARGETS})
 endif()
 add_dependencies(fibonacci_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(fibonacci_callback_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(fibonacci_class_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Install scripts and executables
 install(PROGRAMS scripts/gen_numbers.py
