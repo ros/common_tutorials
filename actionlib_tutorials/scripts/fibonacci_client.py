@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 
-import roslib; roslib.load_manifest('actionlib_tutorials')
 import rospy
 
 # Brings in the SimpleActionClient
