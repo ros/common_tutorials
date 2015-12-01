@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import rospy
+from __future__ import print_function
 
 # Brings in the SimpleActionClient
 import actionlib
@@ -36,6 +37,6 @@ if __name__ == '__main__':
         # publish and subscribe over ROS.
         rospy.init_node('fibonacci_client_py')
         result = fibonacci_client()
-        print "Result:", ', '.join([str(n) for n in result.sequence])
+        print("Result:", ', '.join([str(n) for n in result.sequence]))
     except rospy.ROSInterruptException:
-        print "program interrupted before completion"
+        print("program interrupted before completion", file=sys.stderr)
