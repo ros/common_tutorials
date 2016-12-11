@@ -1,6 +1,6 @@
 <package>
   <name>common_tutorials</name>
-  <version>0.1.8</version>
+  <version>0.1.9</version>
   <description>Metapackage that contains common tutorials</description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
