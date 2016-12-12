@@ -15,7 +15,7 @@ generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
 
 ## Define catkin exports
 catkin_package(
-  CATKIN_DEPENDS roscpp actionlib
+  CATKIN_DEPENDS message_runtime roscpp actionlib
   DEPENDS Boost
 )
 
