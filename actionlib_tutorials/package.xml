@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>actionlib_tutorials</name>
-  <version>0.1.9</version>
+  <version>0.1.10</version>
   <description>The actionlib_tutorials package</description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>

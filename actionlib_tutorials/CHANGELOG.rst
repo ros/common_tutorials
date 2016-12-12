@@ -2,6 +2,10 @@
 Changelog for package actionlib_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.10 (2016-12-12)
+-------------------
+* Export message_runtime to generate wiki documentation for actionlib tutorial actions
+
 0.1.9 (2016-12-11)
 ------------------
 * Fix the runtime error 'SyntaxError: from __future_\_ imports must occur at the beginning of the file'
