@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="turtle_actionlib" name="turtle_shape1" type="shape_server" output="screen"/>
+  <node pkg="turtle_actionlib" name="turtle_shape2" type="shape_server" output="screen">
+    <remap from="/turtle1/pose" to="/turtle2/pose"/>
+    <remap from="/turtle1/command_velocity" to="/turtle2/command_velocity"/>
+  </node>
+
+  <node pkg="turtlesim" name="turtlesim" type="turtlesim_node"/>
+</launch>
