@@ -15,7 +15,6 @@ Output:
     [INFO] : State machine terminating 'GET':'got_it':'succeeded'
 """
 
-import roslib; roslib.load_manifest('smach_tutorials')
 import rospy
 import smach
 import smach_ros

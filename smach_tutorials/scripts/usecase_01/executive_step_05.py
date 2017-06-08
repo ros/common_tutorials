@@ -23,7 +23,6 @@ Output:
     [INFO] : State machine terminating 'DRAW_SHAPES':'succeeded':'succeeded'
 """
 
-import roslib; roslib.load_manifest('smach_tutorials')
 import rospy
 
 import threading

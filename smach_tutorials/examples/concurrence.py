@@ -23,7 +23,6 @@ Output:
     [INFO] : Concurrent Outcomes: {'SET': 'set_it', 'GET': 'got_it'}
 """
 
-import roslib; roslib.load_manifest('smach_tutorials')
 import rospy
 import smach
 import smach_ros

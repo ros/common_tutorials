@@ -5,8 +5,9 @@
     This package contains numerous examples of how to use SMACH.
     See the examples directory.
   </description>
-  <maintainer email="iisaito@kinugarage.com">Isaac I. Y. Saito</maintainer>
   <author>Jonathan Bohren</author>
+  <maintainer email="rhaschke@techfak.uni-bielefeld.de">Robert Haschke</maintainer>
+  <maintainer email="iisaito@kinugarage.com">Isaac I. Y. Saito</maintainer>
   <license>BSD</license>
 
   <url type="website">http://wiki.ros.org/smach_tutorials</url>

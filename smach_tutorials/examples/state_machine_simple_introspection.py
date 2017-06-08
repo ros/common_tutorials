@@ -2,6 +2,7 @@
 
 import rospy
 import smach
+import smach_ros
 
 # define state Foo
 class Foo(smach.State):
@@ -45,10 +46,17 @@ def main():
                                             'outcome2':'outcome4'})
         smach.StateMachine.add('BAR', Bar(), 
                                transitions={'outcome2':'FOO'})
-
+    
+    # Create and start the introspection server
+    sis = smach_ros.IntrospectionServer('my_smach_introspection_server', sm, '/SM_ROOT')
+    sis.start()
+    
     # Execute SMACH plan
     outcome = sm.execute()
-
+    
+    # Wait for ctrl-c to stop the application
+    rospy.spin()
+    sis.stop()
 
 if __name__ == '__main__':
     main()
