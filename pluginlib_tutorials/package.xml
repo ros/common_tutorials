@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>pluginlib_tutorials</name>
-  <version>0.1.10</version>
+  <version>0.1.11</version>
   <description>The pluginlib_tutorials package</description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
