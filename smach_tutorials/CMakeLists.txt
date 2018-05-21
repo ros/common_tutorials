@@ -11,7 +11,7 @@ generate_messages(DEPENDENCIES actionlib_msgs)
 catkin_package(CATKIN_DEPENDS actionlib_msgs message_runtime)
 
 install(
-  DIRECTORY examples
+  DIRECTORY examples scripts
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   USE_SOURCE_PERMISSIONS
   FILES_MATCHING PATTERN "*.py"
