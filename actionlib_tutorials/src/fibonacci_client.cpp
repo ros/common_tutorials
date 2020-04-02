@@ -28,6 +28,11 @@ int main (int argc, char **argv)
   {
     actionlib::SimpleClientGoalState state = ac.getState();
     ROS_INFO("Action finished: %s",state.toString().c_str());
+    actionlib_tutorials::FibonacciResult result = *(ac.getResult());
+    std::stringstream result_string;
+    std::copy(result.sequence.begin(), result.sequence.end(),
+              std::ostream_iterator<int>(result_string, " "));
+    ROS_INFO("Action result: %s", result_string.str().c_str());
   }
   else
     ROS_INFO("Action did not finish before the time out.");
