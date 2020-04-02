@@ -1,6 +1,6 @@
 <package>
   <name>nodelet_tutorial_math</name>
-  <version>0.1.11</version>
+  <version>0.1.12</version>
   <description>Package for Nodelet tutorial.</description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <author>Tully Foote</author>
