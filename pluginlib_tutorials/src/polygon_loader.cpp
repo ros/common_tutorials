@@ -40,6 +40,7 @@
 
 #include <pluginlib/class_loader.hpp>
 #include <pluginlib_tutorials/polygon_base.h>
+#include <ros/ros.h>
 
 int main(int argc, char** argv)
 {
