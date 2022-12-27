@@ -35,7 +35,7 @@
 * Author: Eitan Marder-Eppstein
 * Author: Isaac Saito
 *********************************************************************/
-#include <pluginlib/class_list_macros.h>
+#include <pluginlib/class_list_macros.hpp>
 #include <pluginlib_tutorials/polygon_base.h>
 #include <pluginlib_tutorials/polygon_plugins.h>
 
